@@ -46,8 +46,6 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         
         NSString * html = operation.responseString;
-//        NSLog(@"html   %@", html);
-        
         NSString * str = html;
         NSRange  range1 = [str rangeOfString:@"Msrp"];
         NSString * str1 = [str substringFromIndex:range1.location + range1.length + 3];
@@ -56,48 +54,14 @@
         NSString * str2 = [str substringFromIndex:range3.location + range3.length + 3];
         NSRange  range4 = [str2 rangeOfString:@"B2BPrices"];
         NSString * str3 = [str2 substringToIndex:range4.location - 3];
-        NSLog(@"str3  %@", str3);
-        
         
         NSRange range5 = [str rangeOfString:@"B2BPrices"];
         NSString * str4 = [str substringFromIndex:range5.location + range5.length + 3];
         NSRange range6 = [str4 rangeOfString:@"PtvUrl"];
         NSString * str5 = [str4 substringToIndex:range6.location - 3];
-        NSLog(@"str5  %@", str5);
         
         
         [self resovleString:str5];
-        
-        //    NSArray * arrC = [str3 componentsSeparatedByString:@":"];
-        //    NSLog(@"%@", arrC);
-        //    for (NSString * str  in arrC) {
-        //        NSString * str7 = [str substringFromIndex:2];
-        //        if (str7.length > 3) {
-        //            <#statements#>
-        //        }
-        //        NSLog(@"%@", str7);
-        //    }
-//        [self resovleString:str3];
-        
-//        NSString * str4 = [str3 substringFromIndex:8];
-//        NSLog(@"str4  %@", str4);
-//        NSRange range5 = [str4 rangeOfString:@"B"];
-//        NSString * str5 = [str4 substringToIndex:range5.location - 3];
-//        NSLog(@"str5  %@",str5);
-//
-//        NSString * str6 = [str4 substringFromIndex:range5.location + 5];
-//        NSLog(@"str6 %@", str6);
-//        NSRange  range6 = [str6 rangeOfString:@"C"];
-//        NSString * str7 = [str6 substringToIndex:range6.location - 3];
-//        NSLog(@"str7  %@", str7);
-//        
-//        
-//        NSString * str8 = [str6 substringFromIndex:range6.location + 5];
-//        NSLog(@"str8 %@", str8);
-//        NSString * str9 = [str8 substringToIndex:str8.length - 1];
-//        NSLog(@"str9 %@", str9);
-        
-        
     } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
         NSLog(@"error   %@", error);
     }];
@@ -132,7 +96,6 @@
     _dataSource = [NSMutableArray array];
     _indexTitleArray = [NSMutableArray array];
     NSString * urlStr = @"http://guzhiapi.jingzhengu.com/JuYouChe.asmx/GetMakes?HTTP/1.1";
-//    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"%@", urlStr);
     
     
